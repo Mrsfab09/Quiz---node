@@ -4,23 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css" />
     <title>Document</title>
   </head>
   <body>
+    <div class="slider">
+      <span></span>
+    </div>
     <h1>Pytanie 1</h1>
     <div class="odp">
-        <div class="border">
-            <input class="answer" type="radio">A. Lorem, ipsum dolor.</input><br>
-        </div>
-        <div>
-            <input class="answer" type="radio">A. Lorem, ipsum dolor.</input><br>
-        </div>
-        <div>
-            <input class="answer" type="radio">A. Lorem, ipsum dolor.</input><br>
-        </div>
-        <div>
-            <input class="answer" type="radio">A. Lorem, ipsum dolor.</input><br>
-        </div>
+      <button class="button">A. Lorem, ipsum dolor.Lorem, ipsum dolor.</button>
+      <button class="button">A. Lorem, ipsum dolor.Lorem, ipsum dolor.</button>
+      <button class="button">A. Lorem, ipsum dolor.Lorem, ipsum dolor.</button>
+      <button class="button">A. Lorem, ipsum dolorLorem, ipsum dolor.</button>
     </div>
+    <div class="back_next">
+      <button class="back">Back</button>
+      <button class="next" onclick="alert()">Next</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
   </body>
 </html>
