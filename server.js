@@ -21,18 +21,18 @@ http
     } else {
       res.writeHead(404, { "content-type": "text/html" });
       res.end(JSON.stringify(data));
-    }
-    
-const questions = JSON.parse(data).questions;
-
-res.writeHead(200, { "Content-Type": "text/html" });
-questions.forEach((question, index) => {
-  res.write(`<h3>${index + 1}. ${question.header}</h3>`);
-  res.write(`<button class="option" data-index="${index}" data-answer="${question.answer}">Zobacz odpowiedź</button><br><br>`);
-});
-res.end();
+    }res.end();
   })
-  .listen(3000);
+  .listen(3000);;
+    
+// const questions = JSON.parse(data).questions;
+
+// res.writeHead(200, { "Content-Type": "text/html" });
+// questions.forEach((question, index) => {
+//   res.write(`<h3>${index + 1}. ${question.header}</h3>`);
+//   res.write(`<button class="option" data-index="${index}" data-answer="${question.answer}">Zobacz odpowiedź</button><br><br>`);
+// });
+
 
 console.log("✔ Connected to server");
 
