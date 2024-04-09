@@ -1,39 +1,38 @@
-var http = require("http");
-var fs = require("fs");
+const http = require("http");
+const fs = require("fs");
 
-var data = {
-  id: 456,
-  name: "Node.js",
-  category: "js",
-};
-
-http
-  .createServer((req, res) => {
-    if (req.url === "/") {
-      res.writeHead(200, { "content-type": "text/html" });
-      var html = fs.readFileSync("./index.html", "utf-8");
-
-      res.end(html);
-    } else if (req.url === "/quiz") {
-      res.writeHead(200, { "content-type": "text/html" });
-      var html = fs.readFileSync("./quiz.html", "utf-8");
-      res.end(html);
-    } else {
-      res.writeHead(404, { "content-type": "text/html" });
-      res.end(JSON.stringify(data));
-    }res.end();
-  })
-  .listen(3000);;
-    
-// const questions = JSON.parse(data).questions;
-
-// res.writeHead(200, { "Content-Type": "text/html" });
-// questions.forEach((question, index) => {
-//   res.write(`<h3>${index + 1}. ${question.header}</h3>`);
-//   res.write(`<button class="option" data-index="${index}" data-answer="${question.answer}">Zobacz odpowiedź</button><br><br>`);
-// });
-
+http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.writeHead(200, { "content-type": "text/html" });
+    const html = fs.readFileSync("./index.html", "utf-8");
+    res.end(html);
+  } else if (req.url === "/quiz") {
+    fs.readFile("db.json", "utf-8", (err, jsonData) => {
+      if (err) {
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Błąd odczytu pliku JSON");
+        return;
+      }
+      try {
+        const questionsData = JSON.parse(jsonData);
+        res.writeHead(200, { "content-type": "text/html" });
+        let html = "<h1>Quiz</h1>";
+        console.log(questionsData)
+        html += "<ol>";
+        questionsData.questions.forEach((question, index) => {
+          html += `<li>${question.header}</li>`;
+        });
+        html += "</ol>";
+        res.end(html);
+      } catch (error) {
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("Błąd parsowania danych JSON");
+      }
+    });
+  } else {
+    res.writeHead(404, { "content-type": "text/html" });
+    res.end("<h1>404 Not Found</h1>");
+  }
+}).listen(3000);
 
 console.log("✔ Connected to server");
-
-//-----------------------------------------------------------------
