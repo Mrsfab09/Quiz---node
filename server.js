@@ -15,15 +15,22 @@ http.createServer((req, res) => {
       }
       try {
         const questionsData = JSON.parse(jsonData);
-        res.writeHead(200, { "content-type": "text/html" });
-        let html = "<h1>Quiz</h1>";
-        console.log(questionsData)
-        html += "<ol>";
-        questionsData.questions.forEach((question, index) => {
-          html += `<li>${question.header}</li>`;
+        fs.readFile("quiz.html", "utf-8", (err, quizHtml) => {
+          if (err) {
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end("Błąd odczytu pliku HTML");
+            return;
+          }
+          res.writeHead(200, { "content-type": "text/html" });
+          let html = "<h1>Quiz</h1>";
+          html += "<ol>";
+          questionsData.questions.forEach((question, index) => {
+            html += `<li>${question.header}</li>`;
+          });
+          html += "</ol>";
+          html += quizHtml;
+          res.end(html);
         });
-        html += "</ol>";
-        res.end(html);
       } catch (error) {
         res.writeHead(500, { "Content-Type": "text/plain" });
         res.end("Błąd parsowania danych JSON");

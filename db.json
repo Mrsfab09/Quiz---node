@@ -1,79 +1,79 @@
 {
   "questions": [
     {
-      "header": "Jakie są główne cechy charakterystyczne Node.js?",
+      "header": "Jakie sa glowne cechy charakterystyczne Node.js?",
       "answer": 1
     },
     {
-      "header": "W jaki sposób działają event loop oraz non-blocking I/O w Node.js?",
+      "header": "W jaki sposob dzialaja event loop oraz non-blocking I/O w Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są najczęstsze zastosowania Node.js w projektach webowych?",
+      "header": "Jakie sa najczestsze zastosowania Node.js w projektach webowych?",
       "answer": 1
     },
     {
-      "header": "Jakie są różnice między Node.js a tradycyjnymi platformami serwerowymi?",
+      "header": "Jakie sa roznice miedzy Node.js a tradycyjnymi platformami serwerowymi?",
       "answer": 1
     },
     {
-      "header": "Co to jest pakiet NPM i jakie są jego zalety w kontekście rozwoju aplikacji w Node.js?",
+      "header": "Co to jest pakiet NPM i jakie sa jego zalety w kontekscie rozwoju aplikacji w Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są popularne frameworki do tworzenia aplikacji webowych w Node.js?",
+      "header": "Jakie sa popularne frameworki do tworzenia aplikacji webowych w Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są najlepsze praktyki w zarządzaniu zależnościami w Node.js?",
+      "header": "Jakie sa najlepsze praktyki w zarzadzaniu zaleznosciami w Node.js?",
       "answer": 1
     },
     {
-      "header": "W jaki sposób Node.js obsługuje równoległe żądania HTTP?",
+      "header": "W jaki sposob Node.js obsluguje rownolegle zadania HTTP?",
       "answer": 1
     },
     {
-      "header": "Czym są moduły w Node.js i jak się je używa?",
+      "header": "Czym sa moduly w Node.js i jak sie je uzywa?",
       "answer": 1
     },
     {
-      "header": "Jakie są mechanizmy obsługi wyjątków w Node.js?",
+      "header": "Jakie sa mechanizmy obslugi wyjatkow w Node.js?",
       "answer": 1
     },
     {
-      "header": "Czym jest middleware w kontekście aplikacji webowych opartych na Node.js?",
+      "header": "Czym jest middleware w kontekscie aplikacji webowych opartych na Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są różnice między Node.js a JavaScriptem po stronie klienta (browser)?",
+      "header": "Jakie sa roznice miedzy Node.js a JavaScriptem po stronie klienta (browser)?",
       "answer": 1
     },
     {
-      "header": "Jakie są zalety i wady wykorzystania Node.js do przetwarzania dużych plików?",
+      "header": "Jakie sa zalety i wady wykorzystania Node.js do przetwarzania duzych plikow?",
       "answer": 1
     },
     {
-      "header": "Jakie są różnice między programowaniem synchronicznym i asynchronicznym w kontekście Node.js?",
+      "header": "Jakie sa roznice miedzy programowaniem synchronicznym i asynchronicznym w kontekscie Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są metody przetwarzania danych w czasie rzeczywistym w Node.js?",
+      "header": "Jakie sa metody przetwarzania danych w czasie rzeczywistym w Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są popularne bazy danych używane w połączeniu z Node.js?",
+      "header": "Jakie sa popularne bazy danych uzywane w polaczeniu z Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są techniki optymalizacji wydajności aplikacji w Node.js?",
+      "header": "Jakie sa techniki optymalizacji wydajnosci aplikacji w Node.js?",
       "answer": 1
     },
     {
-      "header": "Jakie są różnice między Node.js a Ruby on Rails w kontekście tworzenia aplikacji webowych?",
+      "header": "Jakie sa roznice miedzy Node.js a Ruby on Rails w kontekscie tworzenia aplikacji webowych?",
       "answer": 1
     },
     {
-      "header": "Jakie są najlepsze praktyki zabezpieczeń w aplikacjach Node.js?",
+      "header": "Jakie sa najlepsze praktyki zabezpieczen w aplikacjach Node.js?",
       "answer": 1
     }
   ]
