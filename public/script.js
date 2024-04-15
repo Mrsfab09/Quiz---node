@@ -1,3 +1,9 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = "https://sczkavsrectrvebpatom.supabase.co";
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 const progressBar = document.querySelector(".progress-bar"),
   progressText = document.querySelector(".progress-text");
 
@@ -9,8 +15,6 @@ const progress = (value) => {
 
 const startBtn = document.querySelector(".start"),
   numQuestions = document.querySelector("#num-questions"),
-  category = document.querySelector("#category"),
-  difficulty = document.querySelector("#difficulty"),
   timePerQuestion = document.querySelector("#time"),
   quiz = document.querySelector(".quiz"),
   startScreen = document.querySelector(".start-screen");
@@ -21,23 +25,35 @@ let questions = [],
   currentQuestion,
   timer;
 
-const startQuiz = () => {
-  const num = numQuestions.value,
-    cat = category.value,
-    diff = difficulty.value;
+const startQuiz = async () => {
+  const num = numQuestions.value;
+
   loadingAnimation();
-  const url = `https://opentdb.com/api.php?amount=${num}&category=${cat}&difficulty=${diff}&type=multiple`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      questions = data.results;
-      setTimeout(() => {
-        startScreen.classList.add("hide");
-        quiz.classList.remove("hide");
-        currentQuestion = 1;
-        showQuestion(questions[0]);
-      }, 1000);
-    });
+
+  try {
+    // Wykonaj zapytanie do bazy danych Supabase, aby pobrać pytania
+    const { data, error } = await supabase
+      .from("questions")
+      .select("question, correct_answer, incorrect_answers")
+      .limit(num)
+      .order("RANDOM()"); // Losowe sortowanie pytań
+
+    if (error) {
+      console.error("Błąd pobierania pytań z bazy Supabase:", error.message);
+      return;
+    }
+
+    questions = data;
+
+    setTimeout(() => {
+      startScreen.classList.add("hide");
+      quiz.classList.remove("hide");
+      currentQuestion = 1;
+      showQuestion(questions[0]);
+    }, 1000);
+  } catch (error) {
+    console.error("Błąd połączenia z bazą Supabase:", error.message);
+  }
 };
 
 startBtn.addEventListener("click", startQuiz);
