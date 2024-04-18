@@ -1,9 +1,3 @@
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = "https://sczkavsrectrvebpatom.supabase.co";
-const supabaseKey = process.env.SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
 const progressBar = document.querySelector(".progress-bar"),
   progressText = document.querySelector(".progress-text");
 
@@ -25,43 +19,34 @@ let questions = [],
   currentQuestion,
   timer;
 
-const startQuiz = async () => {
-  const num = numQuestions.value;
-
+const startQuiz = () => {
   loadingAnimation();
-
-  try {
-    // Wykonaj zapytanie do bazy danych Supabase, aby pobrać pytania
-    const { data, error } = await supabase
-      .from("questions")
-      .select("question, correct_answer, incorrect_answers")
-      .limit(num)
-      .order("RANDOM()"); // Losowe sortowanie pytań
-
-    if (error) {
-      console.error("Błąd pobierania pytań z bazy Supabase:", error.message);
-      return;
-    }
-
-    questions = data;
-
-    setTimeout(() => {
-      startScreen.classList.add("hide");
-      quiz.classList.remove("hide");
-      currentQuestion = 1;
-      showQuestion(questions[0]);
-    }, 1000);
-  } catch (error) {
-    console.error("Błąd połączenia z bazą Supabase:", error.message);
-  }
+  const url =
+    "https://sczkavsrectrvebpatom.supabase.co/rest/v1/questions?select=*";
+  fetch(url, {
+    headers: {
+      apikey: "<your-api-key>",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      questions = data;
+      setTimeout(() => {
+        startScreen.classList.add("hide");
+        quiz.classList.remove("hide");
+        currentQuestion = 1;
+        showQuestion(questions[0]);
+      }, 1000);
+    });
 };
 
 startBtn.addEventListener("click", startQuiz);
 
 const showQuestion = (question) => {
   const questionText = document.querySelector(".question"),
-    answersWrapper = document.querySelector(".answer-wrapper");
-  questionNumber = document.querySelector(".number");
+    answersWrapper = document.querySelector(".answer-wrapper"),
+    questionNumber = document.querySelector(".number");
 
   questionText.innerHTML = question.question;
 
