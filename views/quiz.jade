@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/assets/quizAppStart.css')
+  body
+  .quiz
+      .question-wrapper 
+          .question= question.header
+          .wrapper-form
+            form(action=`/quiz/${questionID}`, method='POST') 
+              each answer in answerResult 
+                input(type='radio', name=`answer_${questionID}`, value=`A_${answer.id}`)
+                label.radio= answer.A 
+                input(type='radio', name=`answer_${questionID}`, value=`B_${answer.id}`)
+                label.radio= answer.B
+                input(type='radio', name=`answer_${questionID}`, value=`C_${answer.id}`)
+                label.radio= answer.C
+                input(type='radio', name=`answer_${questionID}`, value=`D_${answer.id}`)
+                label.radio= answer.D
+          .wrapper-button
+            button.btn(type='submit') Next
+        //- button(type='submit', disabled) Submit
+        //- button.btn.next Next

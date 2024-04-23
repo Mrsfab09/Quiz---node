@@ -1,16 +1,7 @@
 {
-  "name": "quiz",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@supabase/supabase-js": "^2.42.3",
     "express": "^4.19.2",
-    "json-server": "^1.0.0-alpha.23"
+    "jade": "^1.11.0",
+    "mysql": "^2.18.1"
   }
 }

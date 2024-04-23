@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/assets/quizAppStart.css')
+  body
+    .end-screen 
+        h1.heading Quiz App 
+        .score 
+            .score-text Your score: 
+            div 
+                span.result Result
+        form(action='/',method='POST')
+            button.btn Restart Quiz
+
