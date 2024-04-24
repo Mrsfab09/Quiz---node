@@ -197,10 +197,13 @@ select option:hover {
   left: 30px;
   display: block;
   font-size: 16px;
+  font-weight: 300;
   margin-bottom: 20px;
   color: #ffffffa4;
 }
 .wrapper-button {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 
