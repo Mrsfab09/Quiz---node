@@ -4,21 +4,51 @@ html
     title= title
     link(rel='stylesheet', href='/assets/quizAppStart.css')
   body
+    .circle1
+    .circle3
     .quiz
-        .question-wrapper 
-            .question= question.header
-            .wrapper-form
-              form(action=`/quiz/${questionID}`, method='POST') 
-                each answer in answerResult 
-                  input(type='radio', name=`answer_${questionID}`, value=`A_${answer.id}`)
-                  label.radio= answer.A 
-                  input(type='radio', name=`answer_${questionID}`, value=`B_${answer.id}`)
-                  label.radio= answer.B
-                  input(type='radio', name=`answer_${questionID}`, value=`C_${answer.id}`)
-                  label.radio= answer.C
-                  input(type='radio', name= `answer_${questionID}`, value=`D_${answer.id}`)
-                  label.radio= answer.D
-                .wrapper-button
-                  button.btn(type='submit') Next
+      .timer 
+        .progress
+          .progress-bar
+            .progress-text
+        .current
+      .question-wrapper 
+          .question= question.header
+          .wrapper-form
+            form(action=`/quiz/${questionID}`, method='POST') 
+              each answer in answerResult 
+                input(type='radio', name=`answer_${questionID}`, value=`A_${answer.id}`)
+                label.radio= answer.A 
+                input(type='radio', name=`answer_${questionID}`, value=`B_${answer.id}`)
+                label.radio= answer.B
+                input(type='radio', name=`answer_${questionID}`, value=`C_${answer.id}`)
+                label.radio= answer.C
+                input(type='radio', name= `answer_${questionID}`, value=`D_${answer.id}`)
+                label.radio= answer.D
+              .wrapper-button
+                button.btn#btn(type='submit') Next
           //- button(type='submit', disabled) Submit
           //- button.btn.next Next
+    script.
+      const progressBar = document.querySelector(".progress-bar"),
+      progressText = document.querySelector(".progress-text");
+
+      const progress = (value) => {
+        const percentage = (value / time) * 100;
+        progressBar.style.width = `${percentage}%`;
+        progressText.innerHTML = `${value}`;
+      };  
+
+      const startTimer = (time) => {
+        timer = setInterval(() => {
+          if (time === 3) {
+            playAdudio("countdown.mp3");
+          }
+          if (time >= 0) {
+            progress(time);
+            time--;
+          } else {
+            checkAnswer();
+          }
+        }, 1000);
+      };

@@ -4,26 +4,27 @@ html
     title= title
     link(rel='stylesheet', href='/assets/quizAppStart.css')
   body
-    .container
-      .start-screen
-        h1.heading Quiz App
-        div.settings
-          label(for='num-questions') Wybierz ilość pytań
-          select#num-questions
-            option(value='5') 5
-            option(value='10') 10
-            option(value='15') 15
-            option(value='20') 20
-          label(for='time') Select time per question:
-          select#time
-            option(value='10') 10 seconds
-            option(value='15') 15 seconds
-            option(value='20') 20 seconds
-            option(value='25') 25 seconds
-            option(value='30') 30 seconds
-            option(value='60') 60 seconds
-        form(action='/', method='post')
-          button.btn.start(type="button") Start Quiz
+      .img 
+        img(src="assets/image.png", alt="")
+      .container
+        .start-screen
+          div.settings
+            label(for='num-questions') Wybierz ilość pytań
+            select#num-questions
+              option(value='5') 5
+              option(value='10') 10
+              option(value='15') 15
+              option(value='20') 20
+            label(for='time') Wybierz czas na odpowiedź:
+            select#time
+              option(value='10') 10 sekund
+              option(value='15') 15 sekund
+              option(value='20') 20 sekund
+              option(value='25') 25 sekund
+              option(value='30') 30 sekund
+              option(value='60') 60 sekund
+          form(action='/', method='post')
+            button.btn.start(type="button") Start Quiz
 
     script.
       const startBtn = document.querySelector(".start");

@@ -4,12 +4,15 @@ html
     title= title
     link(rel='stylesheet', href='/assets/quizAppStart.css')
   body
+   .img 
+      img(src="assets/image.png", alt="")
     .end-screen 
-        h1.heading Quiz App 
         .score 
             .score-text Your score: 
-            div 
+            .number-score 
                 span.result Result
         form(action='/',method='POST')
             button.btn Restart Quiz
-
+  script.
+    const result = document.querySelector(".result");
+    result.textContent ="Score"
