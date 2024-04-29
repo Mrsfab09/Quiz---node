@@ -8,11 +8,8 @@ html
       img(src="assets/image.png", alt="")
     .end-screen 
         .score 
-            .score-text Your score: 
+            .text Quiz complete
             .number-score 
-                span.result Result
+                span.result= Score
         form(action='/',method='POST')
             button.btn Restart Quiz
-  script.
-    const result = document.querySelector(".result");
-    result.textContent ="Score"

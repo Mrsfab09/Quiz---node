@@ -5,25 +5,20 @@ html
     link(rel='stylesheet', href='/assets/quizAppStart.css')
   body
     .circle1
-    .circle3
+    .circle2
     .quiz
-      .timer 
-        .progress
-          .progress-bar
-            .progress-text
-        .current
       .question-wrapper 
           .question= question.header
           .wrapper-form
             form(action=`/quiz/${questionID}`, method='POST') 
               each answer in answerResult 
-                input(type='radio', name=`answer_${questionID}`, value=`A_${answer.id}`)
+                input(type='radio', name=`answer_${questionID}`, value=`${answer.id}_A`)
                 label.radio= answer.A 
-                input(type='radio', name=`answer_${questionID}`, value=`B_${answer.id}`)
+                input(type='radio', name=`answer_${questionID}`, value=`${answer.id}_B`)
                 label.radio= answer.B
-                input(type='radio', name=`answer_${questionID}`, value=`C_${answer.id}`)
+                input(type='radio', name=`answer_${questionID}`, value=`${answer.id}_C`)
                 label.radio= answer.C
-                input(type='radio', name= `answer_${questionID}`, value=`D_${answer.id}`)
+                input(type='radio', name=`answer_${questionID}`, value=`${answer.id}_D`)
                 label.radio= answer.D
               .wrapper-button
                 button.btn#btn(type='submit') Next
